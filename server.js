@@ -20,7 +20,7 @@ const config = require('./server/config');
  |--------------------------------------
  */
 
-mongoose.connect(config.MONGO_URI, { useMongoClient: true });
+mongoose.connect(config.MONGO_URI, {/* useMongoClient: true*/ });
 const monDb = mongoose.connection;
 
 monDb.on('error', function() {
@@ -64,9 +64,9 @@ require('./server/api')(app, config);
 
 // Pass routing to Angular app
 // Don't run in dev
-if (process.env.NODE_ENV !== 'dev') {
-  app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, '/dist/index.html'));
+if (process.env.NODE_ENV !== "dev") {
+  app.get("*", function(req, res) {
+    res.sendFile(path.join(__dirname, "/dist/index.html"));
   });
 }
 
