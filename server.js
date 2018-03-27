@@ -66,7 +66,7 @@ require('./server/api')(app, config);
 // Don't run in dev
 if (process.env.NODE_ENV !== "dev") {
   app.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname, "/dist/index.html"));
+    res.sendFile(path.join(__dirname, "/src/index.html"));
   });
 }
 
